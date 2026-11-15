@@ -44,9 +44,6 @@ encoder = OneHotEncoder(handle_unknown = 'ignore', sparse_output = False)
 train_data_word = encoder.fit_transform(train_data_word)
 test_data_word = encoder.transform(test_data_word)
 
-#Oddzielam tu dane do drugiego modelu bo do niego nie zmienia NaN na mediane w liczbach 
-X_train_XG = pd.concat([train_data_numb, train_data_word], axis = 1)
-X_test_XG = pd.concat([test_data_numb, test_data_word], axis = 1)
 
 #Zmiana NaN na mediane do regresji liniowej
 imputer_numb = SimpleImputer(strategy = 'median')
